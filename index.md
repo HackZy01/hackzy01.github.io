@@ -9,7 +9,7 @@ Little or bigger, no matter.
 
 ### Contact 📨📱
 
-You can join my discord server:
+You can join my discord server "Error 404":
 
 https://discord.gg/9K3S4Gjc8F
 

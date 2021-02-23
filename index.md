@@ -1,20 +1,20 @@
-## Welcome,
-
+## Hello 👋,
 
 ### About me
-I am dog lover and tech enthusiast :)
+I am dog lover 🐶 and tech enthusiast 💻 :)
 
 
 ### I love making small projects
-like little Elementary OS scripts or a bit larger projects
+Little or bigger, no matter.
 
-
-### little note
-I am also known as HackZy
-
-### Contact
+### Contact 📨📱
 
 You can join my discord server:
 
 https://discord.gg/9K3S4Gjc8F
+
+
+
+### little note 📓
+I am also known as HackZy
 

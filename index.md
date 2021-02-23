@@ -1,7 +1,7 @@
 ## Hello 👋,
 
 ### About me
-I am dog lover 🐶 and tech enthusiast 💻 :)
+I am dog lover 🐶 and tech enthusiast 💻
 
 
 ### I love making small projects

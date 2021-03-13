@@ -10,7 +10,7 @@ Little or a bit bigger, I won't give up so easily 🙂
 
 You can join my discord server:
 
-Sorry link expired i will upload new one soon 
+*Sorry link expired i will upload new one soon*
 
 
 

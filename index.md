@@ -1,20 +1,19 @@
 ## Hello 👋,
 
-### About me
-I am dog lover 🐶 and tech enthusiast 💻. I also like to listen to music 🎵
-
+### About me 🙋‍♂️
+I am a small developer that likes to do useful stuff. (Mostly for Linux)
 
 ### I love making small projects
 Little or bigger, no matter.
 
-### Contact 📨📱
+### Contact 📨
 
-You can join my discord server "Error 404":
+You can join my discord server:
 
-https://discord.gg/9K3S4Gjc8F
+Sorry link expired i will upload new one soon 
 
 
 
 ### little note 📓
-I am also known as HackZy
+Have a nice day 😅
 

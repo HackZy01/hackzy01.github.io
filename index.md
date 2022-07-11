@@ -1,4 +1,4 @@
-## Hello,
+## Hi
 
 ### About me
 I don't really cosider myself as a developer, just someone who wants to make other people's lives easier

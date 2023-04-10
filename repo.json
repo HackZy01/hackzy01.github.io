@@ -1,0 +1,73 @@
+{
+    "RepositoryName": "Misa",
+    "RepositoryDescription": "✨It just works✨",
+    "RepositoryAuthor": "HackZy",
+    "RepositoryIcon": "https://raw.githubusercontent.com/hackzy01/misio/main/assets/Repo.png",
+    "RepositoryWebsite": "https://github.com/hackzy01/misio",
+    "DefaultHeaderImage": "https://raw.githubusercontent.com/hackzy01/misio/main/assets/Header.png",
+    "RepositoryContents": [
+        {
+            "Name": "Checkra1n Lock",
+            "Description": "a breath of fresh air",
+            "Category": "Lock",
+            "Caption": "Replaces the Lock Screen padlock icon with the Checkra1n symbol/n/Based on a jailbreak tweak called LatchKey",
+            "MinIOSVersion": "15.0",
+            "MaxIOSVersion": "16.1.2",
+            "Author": {
+                "Label": "HackZy",
+                "Links": [
+                    {
+                        "Label": "GitHub",
+                        "Link": "https://GitHub.com/hackzy01"
+                    }
+                ]
+            },
+            "Icon": "https://raw.githubusercontent.com/hackzy01/misio/main/assets/com.hackzy.checklockk/icon.png",
+            "Screenshot": [
+                "https://raw.githubusercontent.com/hackzy01/misio/main/assets/com.hackzy.checklock/Screenshot1.png",
+                "https://raw.githubusercontent.com/hackzy01/misio/main/assets/com.hackzy.checklock/Screenshot2.png"
+            ],
+            "Releases": [
+                {
+                    "Version": "1.0",
+                    "Package": "https://raw.githubusercontent.com/hackzy01/misio/main/tweaks/com.hackzy.checklock.misaka",
+                    "Description": "It works"
+                }
+            ],
+            "PackageID": "com.hackzy.checklock"
+        },
+        {
+            "Name": "Subway Surfers Hack",
+            "Description": "That's what I call a pro-gamer move",
+            "Category": "Games",
+            "Caption": "Unlocks all the characters, boards and adds the optimal amount of coins, keys and boards... and a lot more",
+            "MinIOSVersion": "15.0",
+            "MaxIOSVersion": "16.1.2",
+            "Author": {
+                "Label": "HackZy",
+                "Links": [
+                    {
+                        "Label": "GitHub",
+                        "Link": "https://GitHub.com/hackzy01"
+                    }
+                ]
+            },
+            "Icon": "https://raw.githubusercontent.com/hackzy01/misio/main/assets/com.hackzy.subhack/icon.png",
+            "Screenshot": [
+                "https://raw.githubusercontent.com/hackzy01/misio/main/assets/com.hackzy.subhack/Screenshot.png",
+                "https://raw.githubusercontent.com/hackzy01/misio/main/assets/com.hackzy.subhack/Screenshot1.png",
+                "https://raw.githubusercontent.com/hackzy01/misio/main/assets/com.hackzy.subhack/Screenshot2.png",
+                "https://raw.githubusercontent.com/hackzy01/misio/main/assets/com.hackzy.subhack/Screenshot3.png",
+                "https://raw.githubusercontent.com/hackzy01/misio/main/assets/com.hackzy.subhack/Preview.mov"
+            ],
+            "Releases": [
+                {
+                    "Version": "1.0",
+                    "Package": "https://raw.githubusercontent.com/hackzy01/misio/main/tweaks/com.hackzy.subhack.misaka",
+                    "Description": ""
+                }
+            ],
+            "PackageID": "com.hackzy.subhack"
+        }
+    ]
+}

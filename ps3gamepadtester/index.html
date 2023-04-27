@@ -24,12 +24,12 @@
     }
 
     body.genuine {
-      background: linear-gradient(to right, #D30000, #2980b9);
+      background: linear-gradient(to right, #0F52BA, #0080FE);
       color: #fff;
     }
 
     body.counterfeit {
-      background: linear-gradient(to right, #0F52BA, #0080FE);
+      background: linear-gradient(to right, #D30000, #2980b9);
       color: #fff;
     }
 
@@ -66,18 +66,18 @@
     }
 
     .result-genuine {
-      color: #00ff00;
+      color: #acfaac;
     }
 
     .result-counterfeit {
-      color: #ff0000;
+      color: #ffb5b5;
     }
   </style>
 </head>
 <body>
   <h1>DualShock 3 Controller Checker</h1>
   <p>Connect your DualShock 3 controller and click the button to check if it is genuine.</p>
-  <button id="checkButton">Check Controller</button>
+  <button id="checkButton">Check</button>
   <div class="result" id="resultMessage"></div>
   <script>
     var checkButton = document.getElementById('checkButton');

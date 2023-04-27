@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>PNG Peek</title>
-	<link rel="stylesheet" href="style.css">
-</head>
-<body>
-	<div class="container">
-		<h1>PNG Peek</h1>
-		<p>Paste your website URL below:</p>
-		<input type="text" id="url-input" placeholder="https://www.example.com">
-		<button id="detect-button">Detect PNGs</button>
-		<div id="png-images"></div>
-	</div>
-
-	<script src="script.js"></script>
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PNG Peek</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <h1>PNG Peek 👀</h1>
+    <form id="form">
+      <label for="link-input">Enter a website URL:</label>
+      <input type="text" id="link-input" placeholder="https://example.com">
+      <button type="submit">Peek</button>
+    </form>
+    <div id="results"></div>
+    <script src="script.js"></script>
+  </body>
 </html>

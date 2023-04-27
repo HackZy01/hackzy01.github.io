@@ -1,59 +1,30 @@
-const form = document.querySelector("#form");
-const input = document.querySelector("#input");
-const results = document.querySelector("#results");
+// Get the necessary HTML elements
+const htmlInput = document.getElementById('html-input');
+const detectButton = document.getElementById('detect-button');
+const pngImages = document.getElementById('png-images');
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  const html = input.value;
-  const pngs = detectPngs(html);
-  showResults(pngs);
-});
+// Define the regular expression to detect PNG files
+const pngRegex = /<img[^>]*src="([^"]*\.png)"[^>]*>/g;
 
-function detectPngs(html) {
-  const jsonRegex = /{.*?}/gs; // match JSON objects
-  const urlRegex = /https?:\/\/.*?\.png/g; // match PNG URLs
-  let matches = [];
-  let match;
+// Define the function to detect PNGs and display them
+function detectPNGs() {
+	// Clear any existing images
+	pngImages.innerHTML = '';
 
-  while ((match = jsonRegex.exec(html)) !== null) {
-    const json = match[0];
-    while ((match = urlRegex.exec(json)) !== null) {
-      matches.push(match[0]);
-    }
-  }
+	// Get the HTML code from the input
+	const htmlCode = htmlInput.value;
 
-  while ((match = urlRegex.exec(html)) !== null) {
-    matches.push(match[0]);
-  }
+	// Find all matches of the PNG regular expression in the HTML code
+	let match;
+	while ((match = pngRegex.exec(htmlCode)) !== null) {
+		// Create a new image element and set its source to the matched PNG URL
+		const img = document.createElement('img');
+		img.src = match[1];
 
-  return [...new Set(matches)]; // remove duplicates
+		// Append the image element to the PNG images container
+		pngImages.appendChild(img);
+	}
 }
 
-function showResults(pngs) {
-  results.innerHTML = "";
-
-  if (pngs.length === 0) {
-    const noResults = document.createElement("div");
-    noResults.textContent = "No PNG files found";
-    results.appendChild(noResults);
-  } else {
-    pngs.forEach((url) => {
-      const img = document.createElement("img");
-      img.src = url;
-      img.alt = "";
-      img.addEventListener("load", () => {
-        const width = img.naturalWidth;
-        const height = img.naturalHeight;
-        const ratio = width / height;
-        if (width > height) {
-          img.style.width = "100%";
-          img.style.height = "auto";
-        } else {
-          img.style.width = "auto";
-          img.style.height = "100%";
-        }
-      });
-      results.appendChild(img);
-    });
-  }
-}
+// Add an event listener to the detect button to call the detectPNGs function
+detectButton.addEventListener('click', detectPNGs);

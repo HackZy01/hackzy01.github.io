@@ -1,68 +1,59 @@
 body {
-  font-family: sans-serif;
-  background-color: #f0f0f0;
-  padding: 20px;
-  text-align: center;
+	background-color: #F8F8F8;
+	font-family: Arial, sans-serif;
+}
+
+.container {
+	margin: 50px auto;
+	max-width: 800px;
+	background-color: #FFFFFF;
+	padding: 20px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
+	font-size: 36px;
+	margin-top: 0;
 }
 
-form {
-  margin-bottom: 20px;
+p {
+	font-size: 18px;
+	margin-bottom: 10px;
 }
 
-label {
-  display: block;
-  margin-bottom: 10px;
-  font-size: 1.5rem;
+textarea {
+	width: 100%;
+	height: 200px;
+	padding: 10px;
+	font-size: 16px;
+	line-height: 1.5;
+	border: 1px solid #CCCCCC;
+	border-radius: 5px;
+	resize: vertical;
 }
 
-input[type="text"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 5px;
-  margin-bottom: 20px;
+button {
+	padding: 10px 20px;
+	background-color: #4CAF50;
+	color: #FFFFFF;
+	border: none;
+	border-radius: 5px;
+	font-size: 18px;
+	cursor: pointer;
 }
 
-button[type="submit"] {
-  background-color: #2196F3;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 15px 30px;
-  font-size: 1.5rem;
-  cursor: pointer;
+button:hover {
+	background-color: #3E8E41;
 }
 
-button[type="submit"]:hover {
-  background-color: #0D47A1;
+#png-images {
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
 }
 
-#results {
-  margin-top: 20px;
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-  
-  label,
-  input[type="text"],
-  button[type="submit"] {
-    font-size: 1.2rem;
-  }
-  
-  input[type="text"] {
-    margin-bottom: 10px;
-  }
-  
-  button[type="submit"] {
-    padding: 10px 20px;
- }
+#png-images img {
+	max-width: 100%;
+	margin: 10px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }

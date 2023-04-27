@@ -1,11 +1,13 @@
 const form = document.getElementById('form');
-const textarea = document.getElementById('textarea');
+const input = document.getElementById('input');
 const output = document.getElementById('output');
 
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const html = textarea.value;
-  const regex = /<img[^>]+src="?((.+?)\.(png|jpg|jpeg))"?[^>]*>/g;
+  const url = input.value;
+  const response = await fetch(url);
+  const html = await response.text();
+  const regex = /<img[^>]+src=[\"']?(([^\"'>]+)\.(png|jpe?g))[\"']?[^>]*>/g;
   let match;
   let images = '';
   while ((match = regex.exec(html)) !== null) {

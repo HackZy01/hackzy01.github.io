@@ -65,4 +65,14 @@ button[type="submit"]:hover {
   button[type="submit"] {
     padding: 10px 20px;
   }
+#png-images {
+ 	margin-top: 20px;
+ 	display: flex;
+ 	flex-wrap: wrap;
+ }
+ #png-images img {
+ 	max-width: 100%;
+ 	margin: 10px;
+ 	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+ }
 }

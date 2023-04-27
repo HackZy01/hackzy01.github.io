@@ -1,15 +1,59 @@
-const submitButton = document.querySelector('#submit-button');
-const htmlInput = document.querySelector('#html-input');
-const imageContainer = document.querySelector('#image-container');
+const form = document.querySelector("#form");
+const input = document.querySelector("#input");
+const results = document.querySelector("#results");
 
-submitButton.addEventListener('click', () => {
-  const html = htmlInput.value;
-  const regex = /<img[^>]*src="([^"]+.(png|jpe?g|gif))"[^>]*>/g;
-  const matches = html.matchAll(regex);
-  imageContainer.innerHTML = '';
-  for (const match of matches) {
-    const img = document.createElement('img');
-    img.src = match[1];
-    imageContainer.appendChild(img);
-  }
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const html = input.value;
+  const pngs = detectPngs(html);
+  showResults(pngs);
 });
+
+function detectPngs(html) {
+  const jsonRegex = /{.*?}/gs; // match JSON objects
+  const urlRegex = /https?:\/\/.*?\.png/g; // match PNG URLs
+  let matches = [];
+  let match;
+
+  while ((match = jsonRegex.exec(html)) !== null) {
+    const json = match[0];
+    while ((match = urlRegex.exec(json)) !== null) {
+      matches.push(match[0]);
+    }
+  }
+
+  while ((match = urlRegex.exec(html)) !== null) {
+    matches.push(match[0]);
+  }
+
+  return [...new Set(matches)]; // remove duplicates
+}
+
+function showResults(pngs) {
+  results.innerHTML = "";
+
+  if (pngs.length === 0) {
+    const noResults = document.createElement("div");
+    noResults.textContent = "No PNG files found";
+    results.appendChild(noResults);
+  } else {
+    pngs.forEach((url) => {
+      const img = document.createElement("img");
+      img.src = url;
+      img.alt = "";
+      img.addEventListener("load", () => {
+        const width = img.naturalWidth;
+        const height = img.naturalHeight;
+        const ratio = width / height;
+        if (width > height) {
+          img.style.width = "100%";
+          img.style.height = "auto";
+        } else {
+          img.style.width = "auto";
+          img.style.height = "100%";
+        }
+      });
+      results.appendChild(img);
+    });
+  }
+}

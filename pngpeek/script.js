@@ -7,7 +7,7 @@ form.addEventListener('submit', async (e) => {
   const url = input.value;
   const response = await fetch(url);
   const html = await response.text();
-  const regex = /<img[^>]+src=[\"']?(([^\"'>]+)\.(png|jpe?g))[\"']?[^>]*>/g;
+  const regex = /<img[^>]*src="([^"]+.(png|jpe?g|gif))"[^>]*>/g;
   let match;
   let images = '';
   while ((match = regex.exec(html)) !== null) {

@@ -1,17 +1,15 @@
-const form = document.getElementById('form');
-const input = document.getElementById('input');
-const output = document.getElementById('output');
+const submitButton = document.querySelector('#submit-button');
+const htmlInput = document.querySelector('#html-input');
+const imageContainer = document.querySelector('#image-container');
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const url = input.value;
-  const response = await fetch(url);
-  const html = await response.text();
+submitButton.addEventListener('click', () => {
+  const html = htmlInput.value;
   const regex = /<img[^>]*src="([^"]+.(png|jpe?g|gif))"[^>]*>/g;
-  let match;
-  let images = '';
-  while ((match = regex.exec(html)) !== null) {
-    images += `<img src="${match[1]}">`;
+  const matches = html.matchAll(regex);
+  imageContainer.innerHTML = '';
+  for (const match of matches) {
+    const img = document.createElement('img');
+    img.src = match[1];
+    imageContainer.appendChild(img);
   }
-  output.innerHTML = images;
 });

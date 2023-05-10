@@ -1,30 +1,22 @@
-body {
-  background-image: url("https://wallpaperaccess.com/full/4084544.jpg");
+/* Styles for landscape mode */
+@media (orientation: landscape) {
+  body {
+  background-color: rgb(55, 45, 30);
+  background-image: url("https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80");
   background-size: cover;
   background-position: center center;
   background-attachment: fixed;
   font-family: 'Google Sans', sans-serif;
-
+  user-select: none;
 }
 
 .container {
   margin: auto;
   margin-top: 150px;
-  padding: 20px;
+  padding: 36px;
   max-width: 700px;
-  background-color: rgba(125, 201, 156, 0.2);
-  border-radius: 25px;
-  backdrop-filter: blur(20px);
-}
-
-
-.container {
-  margin: auto;
-  margin-top: 150px;
-  padding: 20px;
-  max-width: 700px;
-  background-color: rgba(125, 201, 156, 0.2);
-  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
   backdrop-filter: blur(20px);
 }
 
@@ -45,44 +37,169 @@ input[type="radio"] {
 }
 
 input[type="radio"] + label:before {
-  content: "";
-  display: inline-block;
-  vertical-align: -2px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: 20px;
   height: 20px;
-  border-radius: 50%;
-  margin-right: 5px;
-  border: 2px solid #fff;
+  border: 5px solid #cccccc00;
+  border-radius: 20px;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
+  margin-right: 10px;
 }
-
 input[type="radio"]:checked + label:before {
-  background-color: #0bbf68;
+  background-color: #f7620ca4;
+  border-radius: 5px;
 }
 
-label[for="yes"]:before {
+
+label[for="1y"]:before {
   content: "👍";
 }
-
-label[for="no"]:before {
+label[for="1n"]:before {
   content: "👎";
+}
+
+label[for="2y"]:before {
+  content: "👍";
+}
+label[for="2n"]:before {
+  content: "👎";
+}
+label[for="2m"]:before {
+  content: "🤫";
+}
+
+fieldset {
+  color: #fff;
+  border-radius: 10px;
+  border-color: #ffffff00;
+  backdrop-filter: blur(50px);
+  padding: auto;
 }
 
 input[type="submit"] {
   margin-top: 20px;
-  background-color: #0bbf68;
+  background-color: #f7630c;
   color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  box-shadow: 0px 0px 10px 0px rgba(11, 191, 104, 0.5);
+  box-shadow: 0px 0px 10px 0px rgba(191, 125, 11, 0.5);
   transform: scale(0.9);
-  box-shadow: 0px 0px 5px 0px rgba(11, 191, 104, 0.5);
+  box-shadow: 0px 0px 5px 0px rgba(191, 119, 11, 0.5);
   transition: all 0.2s ease-in-out;
 }
 
 input[type="submit"]:hover {
-  background-color: #0d6efd;
+  background-color: #ce530c;
   transform: scale(1.1);
   transition: all 0.2s ease-in-out;
+}
+}
+
+/* Styles for portrait mode */
+@media (orientation: portrait) {
+    body {
+      background-color: rgb(55, 45, 30);
+      background-image: url("https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1332&q=80");
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      font-family: 'Google Sans', sans-serif;
+      user-select: none;
+      -webkit-backdrop-filter: blur(5px);
+    }
+
+    .container {
+      margin: auto;
+      margin-top: 50px;
+      padding: 24px;
+      max-width: 100%;
+    }
+  
+    h1 {
+      font-size: 2rem;
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    label {
+      font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 10px;
+      display: block;
+    }
+  
+    fieldset {
+      border-radius: 10px;
+      border-color: #ffffff00;
+      backdrop-filter: blur(50px);
+      padding: auto;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+  
+    input[type="radio"] + label:before {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 20px;
+      outline: none;
+      transition: border-color 0.3s ease-in-out;
+      margin-right: 10px;
+    }
+  
+    input[type="radio"]:checked + label:before {
+      background-color: #f7620ca4;
+      border-radius: 5px;
+    }
+  
+    label[for="1y"]:before {
+      content: "👍";
+    }
+    label[for="1n"]:before {
+      content: "👎";
+    }
+  
+    label[for="2y"]:before {
+      content: "👍";
+    }
+    label[for="2n"]:before {
+      content: "👎";
+    }
+    label[for="2m"]:before {
+      content: "🤫";
+    }
+  
+    fieldset {
+      color: #fff;
+      border-radius: 10px;
+      border-color: #ffffff00;
+      padding: auto;
+    }
+  
+    input[type="submit"] {
+      margin-top: 20px;
+      background-color: #f7630c;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0px 0px 10px 0px rgba(191, 125, 11, 0.5);
+      transform: scale(0.9);
+      box-shadow: 0px 0px 5px 0px rgba(191, 119, 11, 0.5);
+      transition: all 0.2s ease-in-out;
+      font-size: 1.2rem;
+    }
+  
+  }
 }

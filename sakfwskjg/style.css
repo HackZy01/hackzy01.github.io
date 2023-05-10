@@ -1,0 +1,48 @@
+body {
+  background-image: url("https://wallpaperaccess.com/full/4084544.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  font-family: 'Google Sans', sans-serif;
+
+}
+
+.container {
+  margin: auto;
+  margin-top: 150px;
+  padding: 20px;
+  max-width: 700px;
+  background-color: rgba(125, 201, 156, 0.2);
+  border-radius: 25px;
+  backdrop-filter: blur(20px);
+}
+
+
+h1 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+label {
+  color: #fff;
+  margin-bottom: 10px;
+  display: block;
+}
+
+input[type="submit"] {
+  margin-top: 20px;
+  background-color: #0bbf68;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 10px 0px rgba(11, 191, 104, 0.5);
+}
+
+
+
+input[type="submit"]:hover {
+  background-color: #0d6efd;
+}

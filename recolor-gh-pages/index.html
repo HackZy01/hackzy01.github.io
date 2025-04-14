@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client-Side Image Recolor</title>
+    <title>OneUI Pattern</title>
     <style>
+        /* --- One UI 7 Inspired Dark Theme (Restored) --- */
         :root {
-            /* --- One UI 7 Inspired Dark Theme --- */
             --oneui-bg-color: #191919;
             --oneui-card-bg: #242424;
+            --oneui-card-bg-hover: #2f2f2f;
             --oneui-text-color: #ededed;
             --oneui-secondary-text-color: #a8a8a8;
             --oneui-border-color: #3a3a3a;
@@ -18,7 +19,6 @@
             --oneui-radio-hover-bg: #404040;
             --oneui-shadow-color: rgba(0, 0, 0, 0.5);
 
-            /* --- Sizing & Spacing Refinements --- */
             --oneui-border-radius: 18px;
             --oneui-border-radius-small: 10px;
             --oneui-padding: 22px;
@@ -35,7 +35,7 @@
             font-family: "Samsung Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--oneui-bg-color);
             margin: 0;
-            padding: 0 var(--oneui-padding) var(--oneui-padding) var(--oneui-padding); /* Mobile padding */
+            padding: 0 var(--oneui-padding) var(--oneui-padding) var(--oneui-padding);
             color: var(--oneui-text-color);
             display: flex; flex-direction: column; align-items: center;
             min-height: 100vh; font-size: 16px;
@@ -44,12 +44,12 @@
 
         .main-container {
             width: 100%; max-width: 550px; display: flex; flex-direction: column;
-            gap: 25px; transition: max-width 0.3s ease;
+            gap: 25px; /* Keep original gap */
+            transition: max-width 0.3s ease;
             margin-top: var(--oneui-mobile-title-height);
         }
 
-        /* Mobile Title Area */
-        h1 {
+        h1 { /* Mobile Title */
             text-align: left; width: 100%; max-width: 550px; position: absolute;
             top: var(--oneui-padding); left: 50%; transform: translateX(-50%);
             padding: 0 var(--oneui-padding); margin: 0; font-weight: 700;
@@ -59,22 +59,19 @@
 
         .card {
             background-color: var(--oneui-card-bg); border-radius: var(--oneui-border-radius);
-            padding: var(--oneui-padding-small) var(--oneui-padding); box-shadow: none;
-            border: 1px solid var(--oneui-border-color); overflow: hidden;
-            transition: background-color 0.2s ease, border-color 0.2s ease;
+            padding: var(--oneui-padding); /* Restore original padding */
+            box-shadow: none; border: 1px solid var(--oneui-border-color);
+            overflow: hidden; transition: background-color 0.2s ease, border-color 0.2s ease;
         }
         .card h2 {
-            margin: 0 0 var(--oneui-gap) 0; font-size: 1.2em; font-weight: 600;
+            margin: 0 0 var(--oneui-gap) 0; font-size: 1.3em; font-weight: 600; /* Restore original H2 */
             color: var(--oneui-text-color); border-bottom: 1px solid var(--oneui-border-color);
             padding-bottom: var(--oneui-padding-small); letter-spacing: -0.2px;
         }
 
-        /* Base style for left column - gap between cards on mobile */
-        .left-column {
-            display: flex; flex-direction: column; gap: 25px;
-        }
+        .left-column { display: flex; flex-direction: column; gap: 25px; } /* Mobile gap */
 
-        /* --- Image Selection Styling --- */
+        /* --- Image Selection Styling (One UI 7 style) --- */
         .image-selector { display: flex; flex-direction: column; gap: var(--oneui-gap); margin: 0; }
         .image-selector-item {
             display: flex; align-items: center; gap: 15px; padding: var(--oneui-padding-small);
@@ -94,6 +91,7 @@
              background-color: var(--oneui-accent-color); border-radius: 50%;
              position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
         }
+        /* Selected item style */
         .image-selector-item.item-checked {
              background-color: color-mix(in srgb, var(--oneui-card-bg) 75%, var(--oneui-accent-color) 25%);
              border-color: var(--oneui-accent-color);
@@ -109,10 +107,10 @@
              transition: color 0.2s ease, font-weight 0.2s ease; font-weight: 400;
         }
 
-        /* --- Color Controls Styling --- */
+        /* --- Color Controls Styling (One UI 7 style) --- */
         .color-controls {
             display: flex; justify-content: space-around; align-items: center;
-            gap: 20px; flex-wrap: wrap; padding: var(--oneui-padding-small) 0;
+            gap: 25px; flex-wrap: wrap; margin-top: var(--oneui-padding-small);
         }
         .color-picker-group { display: flex; flex-direction: column; align-items: center; gap: 10px; }
         .color-picker-group label { font-size: 0.95em; font-weight: 500; color: var(--oneui-secondary-text-color); }
@@ -127,19 +125,47 @@
         .color-picker-group input[type="color"]::-webkit-color-swatch { border: none; border-radius: 50%; }
         .color-picker-group input[type="color"]::-moz-color-swatch { border: none; border-radius: 50%; }
 
-        /* --- Output Area Styling --- */
+
+        /* --- Download Button (Styled for One UI 7) --- */
+        .download-btn {
+            display: block; width: 100%;
+            padding: 12px;
+            margin-top: 3px;
+            font-size: 1em; /* Match label size */
+            font-weight: 500;
+            color: var(--oneui-text-color);
+            background-color: var(--oneui-accent-color);
+            border: 1px solid var(--oneui-accent-color);
+            border-radius: 25px;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+        }
+        .download-btn:hover {
+            background-color: var(--oneui-accent-hover-color);
+            border-color: var(--oneui-radio-hover-bg);
+        }
+        .download-btn:active {
+            background-color: var(--oneui-accent-color);
+            border-color: var(--oneui-accent-color);
+            color: #ffffff;
+            transform: scale(0.97); /* Click effect */
+        }
+
+
+        /* --- Output Area Styling (One UI 7 style) --- */
         .right-column .card { min-height: 250px; display: flex; flex-direction: column; }
         .output-container {
             position: relative; flex-grow: 1; display: flex; justify-content: center; align-items: center;
-            background-color: var(--oneui-bg-color); border-radius: var(--oneui-border-radius-small);
+            background-color: var(--oneui-bg-color); /* Original darker background */
+            border-radius: var(--oneui-border-radius-small);
             margin-top: var(--oneui-gap); min-height: 200px; padding: var(--oneui-padding-small);
-            overflow: hidden; /* Ensure container clips overflow */
+            overflow: hidden;
         }
-        #output-image { display: none; } /* Hide original img */
-        #output-canvas { /* Style the canvas */
-            display: block; max-width: 100%; max-height: 400px; /* Mobile max height */
-            height: auto; width: auto; /* Allow intrinsic scaling */
-            object-fit: contain; /* Visual behavior if needed, though max-width/height handle it */
+        #output-image { display: none; }
+        #output-canvas {
+            display: block; max-width: 100%; max-height: 400px; /* Mobile */
+            height: auto; width: auto; object-fit: contain;
             border-radius: var(--oneui-border-radius-small); transition: opacity 0.3s ease;
         }
         .loading-overlay {
@@ -154,77 +180,74 @@
         .loading-overlay span { margin-top: 10px; font-weight: 500; }
 
 
-        /* --- Responsive Layout for Tablets/Desktops --- */
+        /* --- Responsive Layout for Tablets/Desktops (One UI 7 style) --- */
         @media (min-width: 768px) {
-             body { padding: var(--oneui-padding); } /* Restore body padding */
+             body { padding: var(--oneui-padding); }
              h1 { display: none; } /* Hide mobile title */
             .main-container {
                 flex-direction: row; max-width: 1200px; align-items: flex-start;
-                gap: 35px; margin-top: 0; /* Reset mobile margin */
+                gap: 35px; /* Original wider gap */
+                margin-top: 0;
             }
-            .left-column { /* Desktop specific styles */
-                flex: 1; /* Already display:flex; column */
-                gap: 30px; /* Override mobile gap */
+            .left-column {
+                flex: 1; display: flex; flex-direction: column;
+                gap: 30px; /* Original desktop gap */
                 min-width: 320px;
             }
             .right-column {
                 flex: 2; position: sticky; top: var(--oneui-padding);
                 max-height: calc(100vh - 2 * var(--oneui-padding));
-                overflow: hidden; /* Hide overflow on the sticky container */
+                overflow: hidden;
             }
-             .right-column .card { /* Style the card inside sticky container */
-                 height: 100%; box-shadow: var(--oneui-shadow); border: none;
+             .right-column .card {
+                 height: 100%; box-shadow: var(--oneui-shadow); /* Restore shadow */
+                 border: none; /* Remove border */
                  padding: var(--oneui-padding); display: flex; flex-direction: column;
-                 overflow: hidden; /* Hide overflow on card */
+                 overflow: hidden;
              }
              .right-column .card h2 { font-size: 1.4em; flex-shrink: 0; }
 
-             /* --- Desktop Output Container & Canvas Bounds --- */
              .right-column .output-container {
-                 flex-grow: 1; /* Takes remaining space */
-                 margin-top: var(--oneui-gap);
-                 min-height: 0; /* Override mobile min-height */
-                 padding: 0; /* Remove padding inside for max space */
-                 background-color: var(--oneui-radio-bg); /* Use a subtle bg */
-                 display: flex; /* Keep flex centering */
-                 justify-content: center;
-                 align-items: center;
-                 overflow: hidden; /* Crucial: contain the canvas */
+                 flex-grow: 1; margin-top: var(--oneui-gap); min-height: 0;
+                 padding: 0; background-color: var(--oneui-radio-bg); /* Restore original bg */
+                 border-radius: var(--oneui-border-radius-small);
+                 border: 1px solid var(--oneui-border-color); /* Add subtle border */
+                 display: flex; justify-content: center; align-items: center;
+                 overflow: hidden;
              }
-             #output-canvas { /* Canvas fills container, respecting aspect ratio */
-                  max-width: 100%;   /* Never wider than container */
-                  max-height: 100%;  /* Never taller than container */
-                  width: auto;       /* Scale width based on height */
-                  height: auto;      /* Scale height based on width */
-                  object-fit: contain; /* Visual representation of intent */
+             #output-canvas {
+                  max-width: 100%; max-height: 100%; width: auto; height: auto;
+                  object-fit: contain; border-radius: var(--oneui-border-radius-small);
              }
-             /* --- End Desktop Output Bounds --- */
 
-             .right-column .loading-overlay { border-radius: var(--oneui-border-radius-small); }
+             /* Adjust button margin for desktop */
+             .download-btn { margin-top: var(--oneui-gap); }
+
             /* Hide scrollbar */
             .right-column { -ms-overflow-style: none; scrollbar-width: none; }
             .right-column::-webkit-scrollbar { display: none; }
         }
 
-        /* --- Small Mobile Tweaks --- */
+        /* Small Mobile Tweaks (One UI 7 style) */
         @media (max-width: 480px) {
               :root { --oneui-padding: 18px; --oneui-mobile-title-height: 70px; }
-              h1 { font-size: 2em; }
+              h1 { font-size: 1.8em; }
               .main-container { gap: 20px; }
-              .card { padding: var(--oneui-padding-small); }
-              .card h2 { font-size: 1.1em; margin-bottom: 15px;}
+              .card { padding: 18px; /* Consistent padding */ border-radius: 16px; }
+              .card h2 { font-size: 1.2em; margin-bottom: 18px;}
               .pattern-label { font-size: 0.95em;}
               .pattern-preview { width: 40px; height: 40px;}
               .image-selector-item { gap: 12px; padding: 10px;}
               .color-picker-group input[type="color"] { width: 50px; height: 50px; }
-              .color-controls { gap: 20px; padding: 10px 0; }
-              #output-canvas { max-height: 300px; } /* Keep mobile max height */
+              .color-controls { gap: 20px; }
+              #output-canvas { max-height: 300px; }
+              .download-btn { padding: 12px 15px; font-size: 0.95em; }
         }
     </style>
 </head>
 <body>
 
-    <h1>Image Recolor</h1> <!-- Still present, hidden on desktop by CSS -->
+    <h1>Patterns</h1> <!-- Hidden on desktop -->
 
     <div class="main-container">
 
@@ -250,7 +273,7 @@
                         <label class="pattern-label" for="radio_3">Pattern 003</label>
                     </div>
                 </div>
-                 <!-- Hidden images for loading into canvas -->
+                 <!-- Hidden images -->
                  <div style="display:none;">
                      <img id="img_pattern_1" src="images/pattern_500_001.webp">
                      <img id="img_pattern_2" src="images/pattern_500_002.webp">
@@ -272,6 +295,10 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Download Button -->
+            <button id="download-button" class="download-btn">Download result</button>
+
         </div> <!-- End left-column -->
 
         <div class="right-column">
@@ -280,24 +307,27 @@
                 <h2>Result</h2>
                 <div class="output-container">
                     <div id="loading" class="loading-overlay">
-                        <span>Processing...</span>
+                        <span>Processing</span>
                     </div>
                     <canvas id="output-canvas" width="500" height="500"></canvas>
-                    <img id="output-image" src="" alt="Recolored Image"> <!-- Hidden by CSS -->
+                    <img id="output-image" src="" alt="Recolored Image"> <!-- Hidden -->
                 </div>
             </div>
         </div> <!-- End right-column -->
 
     </div> <!-- End main-container -->
 
-    <!-- JavaScript (using previous robust version) -->
+    <!-- JavaScript (including download logic) -->
     <script>
+        // --- Paste the *entire* JavaScript block from the previous working step here ---
+        // (The one that includes the client-side processing and the download handler)
         document.addEventListener('DOMContentLoaded', () => {
             const colorStartPicker = document.getElementById('color-start');
             const colorEndPicker = document.getElementById('color-end');
             const outputCanvas = document.getElementById('output-canvas');
             const outputCtx = outputCanvas.getContext('2d', { willReadFrequently: true });
             const loadingIndicator = document.getElementById('loading');
+            const downloadButton = document.getElementById('download-button'); // Get button
             const imageSelectors = document.querySelectorAll('.image-selector-item');
 
             const sourceCanvas = document.createElement('canvas');
@@ -308,197 +338,98 @@
             let currentImageElement = null;
             let isProcessing = false;
 
-            function hexToRgb(hex) {
+            function hexToRgb(hex) { /* ... as before ... */
                 const bigint = parseInt(hex.slice(1), 16);
-                const r = (bigint >> 16) & 255;
-                const g = (bigint >> 8) & 255;
-                const b = bigint & 255;
+                const r = (bigint >> 16) & 255; const g = (bigint >> 8) & 255; const b = bigint & 255;
                 return { r, g, b };
             }
-
-            function showLoading(isLoading) {
+            function showLoading(isLoading) { /* ... as before ... */
                 loadingIndicator?.classList.toggle('visible', isLoading);
-                if (outputCanvas) {
-                    outputCanvas.style.opacity = isLoading ? '0.3' : '1';
-                }
+                if (outputCanvas) { outputCanvas.style.opacity = isLoading ? '0.3' : '1'; }
             }
-
-            function applyRecoloring(sourceImgElement, startColorHex, endColorHex) {
-                // ... (Keep the applyRecoloring function exactly as in the previous working version) ...
-                if (!sourceImgElement || !sourceImgElement.complete || sourceImgElement.naturalWidth === 0) {
-                    console.error("Source image not ready or invalid:", sourceImgElement?.id);
-                    showLoading(false);
-                    isProcessing = false;
-                    return;
-                }
-                if (isProcessing) {
-                    console.warn("Already processing, skipping subsequent request.");
-                    return;
-                }
-                isProcessing = true;
-                showLoading(true);
-
-                return new Promise((resolve) => {
-                    requestAnimationFrame(() => {
-                        setTimeout(() => {
-                           try {
-                                const startColor = hexToRgb(startColorHex);
-                                const endColor = hexToRgb(endColorHex);
-                                const width = sourceImgElement.naturalWidth;
-                                const height = sourceImgElement.naturalHeight;
-
-                                if (sourceCanvas.width !== width) sourceCanvas.width = width;
-                                if (sourceCanvas.height !== height) sourceCanvas.height = height;
-                                if (outputCanvas.width !== width) outputCanvas.width = width;
-                                if (outputCanvas.height !== height) outputCanvas.height = height;
-
-                                sourceCtx.clearRect(0, 0, width, height);
-                                sourceCtx.drawImage(sourceImgElement, 0, 0, width, height);
-
-                                const imageData = sourceCtx.getImageData(0, 0, width, height);
-                                const data = imageData.data;
-                                const outputImageData = outputCtx.createImageData(width, height);
-                                const outputData = outputImageData.data;
-
-                                for (let i = 0; i < data.length; i += 4) {
-                                    const grayscaleValue = data[i];
-                                    const alpha = data[i + 3];
-                                    const t = grayscaleValue / 255.0;
-                                    outputData[i]     = Math.round(startColor.r * (1 - t) + endColor.r * t);
-                                    outputData[i + 1] = Math.round(startColor.g * (1 - t) + endColor.g * t);
-                                    outputData[i + 2] = Math.round(startColor.b * (1 - t) + endColor.b * t);
-                                    outputData[i + 3] = alpha;
-                                }
-                                outputCtx.putImageData(outputImageData, 0, 0);
-                                console.log("Processing complete for:", sourceImgElement.id);
-                                isProcessing = false;
-                                showLoading(false);
-                                resolve();
-                            } catch (error) {
-                                 console.error("Error during image processing:", error, sourceImgElement?.id);
-                                 if (error.name === 'SecurityError') {
-                                     alert("Canvas Security Error: Cannot process image. Try serving files via a local web server instead of opening the HTML directly.");
-                                 } else {
-                                     alert("An error occurred during image processing. Check console for details.");
+            function applyRecoloring(sourceImgElement, startColorHex, endColorHex) { /* ... as before ... */
+                 if (!sourceImgElement || !sourceImgElement.complete || sourceImgElement.naturalWidth === 0) { console.error("Source image not ready:", sourceImgElement?.id); showLoading(false); isProcessing = false; return; }
+                 if (isProcessing) { console.warn("Already processing."); return; }
+                 isProcessing = true; showLoading(true);
+                 return new Promise((resolve) => {
+                     requestAnimationFrame(() => {
+                         setTimeout(() => {
+                            try {
+                                 const startColor = hexToRgb(startColorHex); const endColor = hexToRgb(endColorHex);
+                                 const width = sourceImgElement.naturalWidth; const height = sourceImgElement.naturalHeight;
+                                 if (sourceCanvas.width !== width) sourceCanvas.width = width; if (sourceCanvas.height !== height) sourceCanvas.height = height;
+                                 if (outputCanvas.width !== width) outputCanvas.width = width; if (outputCanvas.height !== height) outputCanvas.height = height;
+                                 sourceCtx.clearRect(0, 0, width, height); sourceCtx.drawImage(sourceImgElement, 0, 0, width, height);
+                                 const imageData = sourceCtx.getImageData(0, 0, width, height); const data = imageData.data;
+                                 const outputImageData = outputCtx.createImageData(width, height); const outputData = outputImageData.data;
+                                 for (let i = 0; i < data.length; i += 4) {
+                                     const grayscaleValue = data[i]; const alpha = data[i + 3]; const t = grayscaleValue / 255.0;
+                                     outputData[i] = Math.round(startColor.r * (1 - t) + endColor.r * t); outputData[i + 1] = Math.round(startColor.g * (1 - t) + endColor.g * t); outputData[i + 2] = Math.round(startColor.b * (1 - t) + endColor.b * t); outputData[i + 3] = alpha;
                                  }
-                                 isProcessing = false;
-                                 showLoading(false);
-                                 resolve();
-                            }
-                        }, 10);
-                    });
-                 });
+                                 outputCtx.putImageData(outputImageData, 0, 0); console.log("Processing complete:", sourceImgElement.id);
+                                 isProcessing = false; showLoading(false); resolve();
+                             } catch (error) {
+                                  console.error("Processing error:", error, sourceImgElement?.id);
+                                  if (error.name === 'SecurityError') { alert("Canvas Security Error..."); } else { alert("Processing error..."); }
+                                  isProcessing = false; showLoading(false); resolve();
+                             }
+                         }, 10); }); });
             }
-
-
-            function triggerUpdate() {
-                // ... (Keep the triggerUpdate function exactly as in the previous working version) ...
-                 if (!currentFilename) { console.warn("triggerUpdate called with no currentFilename"); return; }
+            function triggerUpdate() { /* ... as before ... */
+                 if (!currentFilename) { console.warn("triggerUpdate no filename"); return; }
                  const imgId = document.querySelector(`.image-selector-item[data-filename="${currentFilename}"]`)?.dataset.imgId;
                  currentImageElement = imgId ? document.getElementById(imgId) : null;
-
                  if (currentImageElement) {
-                    const handleLoad = () => {
-                        currentImageElement.removeEventListener('load', handleLoad);
-                        currentImageElement.removeEventListener('error', handleError);
-                        console.log("Selected image loaded, proceeding:", currentFilename);
-                        applyRecoloring(currentImageElement, colorStartPicker.value, colorEndPicker.value);
-                    };
-                    const handleError = () => {
-                         currentImageElement.removeEventListener('load', handleLoad);
-                         currentImageElement.removeEventListener('error', handleError);
-                        console.error("Failed to load selected image:", currentFilename);
-                        alert(`Failed to load pattern: ${currentFilename}`);
-                        showLoading(false);
-                        isProcessing = false;
-                    };
-                    currentImageElement.addEventListener('load', handleLoad);
-                    currentImageElement.addEventListener('error', handleError);
-                    if (currentImageElement.complete && currentImageElement.naturalWidth > 0) {
-                         console.log("Selected image already complete:", currentFilename);
-                         setTimeout(handleLoad, 0);
-                    } else if (currentImageElement.complete && currentImageElement.naturalWidth === 0) {
-                        console.error("Selected image complete but invalid (zero width):", currentFilename);
-                         setTimeout(handleError, 0);
-                    } else {
-                         console.log("Waiting for selected image to load:", currentFilename);
-                         showLoading(true);
-                    }
-                 } else {
-                     console.error("Could not find image element for:", currentFilename);
-                     showLoading(false); isProcessing = false;
-                 }
+                     const handleLoad = () => { currentImageElement.removeEventListener('load', handleLoad); currentImageElement.removeEventListener('error', handleError); console.log("Selected loaded:", currentFilename); applyRecoloring(currentImageElement, colorStartPicker.value, colorEndPicker.value); };
+                     const handleError = () => { currentImageElement.removeEventListener('load', handleLoad); currentImageElement.removeEventListener('error', handleError); console.error("Failed load selected:", currentFilename); alert(`Failed load pattern: ${currentFilename}`); showLoading(false); isProcessing = false; };
+                     currentImageElement.addEventListener('load', handleLoad); currentImageElement.addEventListener('error', handleError);
+                     if (currentImageElement.complete && currentImageElement.naturalWidth > 0) { console.log("Selected already complete:", currentFilename); setTimeout(handleLoad, 0); }
+                     else if (currentImageElement.complete && currentImageElement.naturalWidth === 0) { console.error("Selected complete invalid:", currentFilename); setTimeout(handleError, 0); }
+                     else { console.log("Waiting selected:", currentFilename); showLoading(true); }
+                 } else { console.error("No image element:", currentFilename); showLoading(false); isProcessing = false; }
             }
-
-            function handleColorChange() {
-                clearTimeout(debounceTimer);
-                debounceTimer = setTimeout(triggerUpdate, 250);
+            function handleColorChange() { clearTimeout(debounceTimer); debounceTimer = setTimeout(triggerUpdate, 250); }
+            function handleDownload() { /* ... as before ... */
+                 if (!outputCanvas) return;
+                  try {
+                     const baseFilename = currentFilename ? currentFilename.split('.')[0] : 'recolored-image';
+                     const filename = `${baseFilename}_${colorStartPicker.value.slice(1)}-${colorEndPicker.value.slice(1)}.png`;
+                     const dataURL = outputCanvas.toDataURL('image/png'); const link = document.createElement('a');
+                     link.href = dataURL; link.download = filename; document.body.appendChild(link);
+                     link.click(); document.body.removeChild(link); console.log("Downloaded:", filename);
+                  } catch (e) { console.error("Download failed:", e); alert("Download failed."); }
             }
 
             // --- Event Listeners ---
             colorStartPicker.addEventListener('input', handleColorChange);
             colorEndPicker.addEventListener('input', handleColorChange);
-
+            downloadButton.addEventListener('click', handleDownload);
             document.querySelectorAll('input[name="base_image"]').forEach(radio => {
-                 radio.addEventListener('change', (event) => {
-                     if (event.target.checked) {
-                         currentFilename = event.target.value;
-                         console.log("Radio change selected image:", currentFilename);
-                         triggerUpdate();
-                     }
-                 });
+                 radio.addEventListener('change', (event) => { if (event.target.checked) { currentFilename = event.target.value; triggerUpdate(); } });
             });
 
             // --- Initial Load Logic ---
-            // ... (Keep the robust initial load logic from the previous step) ...
              const initialImgId = document.querySelector('.image-selector-item.item-checked')?.dataset.imgId;
              const initialImageElement = initialImgId ? document.getElementById(initialImgId) : null;
-             if (initialImageElement) {
-                 const handleInitialLoad = () => {
-                     initialImageElement.removeEventListener('load', handleInitialLoad);
-                     initialImageElement.removeEventListener('error', handleInitialError);
-                     console.log("Initial image finished loading successfully:", initialImageElement.src);
-                     triggerUpdate(); // Process the loaded initial image
-                 };
-                 const handleInitialError = (errorEvent) => {
-                     initialImageElement.removeEventListener('load', handleInitialLoad);
-                     initialImageElement.removeEventListener('error', handleInitialError);
-                     console.error("Failed to load initial image (onerror event):", initialImageElement.src, errorEvent);
-                     alert("Failed to load the initial pattern image. Check image paths/network. See console.");
-                     showLoading(false); isProcessing = false;
-                 };
-                 initialImageElement.addEventListener('load', handleInitialLoad);
-                 initialImageElement.addEventListener('error', handleInitialError);
-                 if (initialImageElement.complete && initialImageElement.naturalWidth > 0) {
-                     console.log("Initial image was already complete and valid.");
-                     setTimeout(handleInitialLoad, 0);
-                 } else if (initialImageElement.complete && initialImageElement.naturalWidth === 0) {
-                     console.error("Initial image reported complete but has zero width - likely broken path.");
-                     setTimeout(handleInitialError, 0);
-                 } else {
-                     console.log("Waiting for initial image 'load' or 'error' event...");
-                     showLoading(true);
-                 }
-             } else if (currentFilename) {
-                 console.warn("Initial filename selected, but corresponding image element not found immediately.");
-                 setTimeout(triggerUpdate, 50);
-             } else {
-                  console.warn("No initial pattern selected on load."); showLoading(false);
-             }
-
+             if (initialImageElement) { /* ... same load/error handling ... */
+                 const handleInitialLoad = () => { initialImageElement.removeEventListener('load', handleInitialLoad); initialImageElement.removeEventListener('error', handleInitialError); console.log("Initial loaded:", initialImageElement.src); triggerUpdate(); };
+                 const handleInitialError = (e) => { initialImageElement.removeEventListener('load', handleInitialLoad); initialImageElement.removeEventListener('error', handleInitialError); console.error("Initial error:", initialImageElement.src, e); alert("Failed initial load."); showLoading(false); isProcessing = false; };
+                 initialImageElement.addEventListener('load', handleInitialLoad); initialImageElement.addEventListener('error', handleInitialError);
+                 if (initialImageElement.complete && initialImageElement.naturalWidth > 0) { console.log("Initial already complete."); setTimeout(handleInitialLoad, 0); }
+                 else if (initialImageElement.complete && initialImageElement.naturalWidth === 0) { console.error("Initial complete invalid."); setTimeout(handleInitialError, 0); }
+                 else { console.log("Waiting initial..."); showLoading(true); }
+             } else if (currentFilename) { console.warn("Initial filename but no element."); setTimeout(triggerUpdate, 50); }
+             else { console.warn("No initial selection."); showLoading(false); }
         }); // DOMContentLoaded end
 
         // Helper function for clickable items
-        function selectPattern(element, radioId) {
+        function selectPattern(element, radioId) { /* ... as before ... */
             const radio = element.querySelector('input[type="radio"]');
             if (radio && !radio.checked) {
                  document.querySelectorAll('.image-selector-item').forEach(item => item.classList.remove('item-checked'));
-                 element.classList.add('item-checked');
-                 radio.checked = true;
+                 element.classList.add('item-checked'); radio.checked = true;
                  radio.dispatchEvent(new Event('change', { bubbles: true }));
-            } else if (radio && radio.checked) {
-                 console.log("Pattern already selected");
-            }
+            } else if (radio && radio.checked) { console.log("Pattern already selected"); }
         }
     </script>
 </body>
